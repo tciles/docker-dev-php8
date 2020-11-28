@@ -1,16 +1,32 @@
 version: "3.3"
 services: 
+  db:
+    image: mariadb
+    restart: always
+    networks:
+      - backend_data
+    ports: 
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariadb
+
   php:
     build: ./php
+    depends_on:
+      - db
+    environment:
+      - DB_1_ENV_MYSQL_USER=root
+      - DB_1_ENV_MYSQL_PASSWORD=mariadb
     networks:
       - backend
+      - backend_data
     ports: 
       - 9000:9000
     expose: 
       - 9000  
     volumes:
-      - ./:/var/www/html  
-      - ../logs/php:/var/log:rw
+      - ../app/:/var/www/html  
+      - ../logs/php:/var/log:rw    
 
   apache:
     build: ./apache
@@ -22,9 +38,10 @@ services:
     ports: 
       - 8080:80
     volumes:
-      - ./:/usr/local/apache2/htdocs/
+      - ../app/:/usr/local/apache2/htdocs/
       - ../logs/apache:/usr/local/apache2/logs:rw
 
 networks:
+  backend_data:
   backend:
   frontend:

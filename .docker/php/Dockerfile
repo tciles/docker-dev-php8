@@ -19,7 +19,7 @@ RUN apt-get update -y \
     bash \
     git
 
-RUN apt-get install -y php8.0-fpm 
+RUN apt-get install -y php8.0-fpm php8.0-mysql
 
 RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-setup.php.sig \
         && curl -sS https://getcomposer.org/installer | tee composer-setup.php | sha384sum -c composer-setup.php.sig \
