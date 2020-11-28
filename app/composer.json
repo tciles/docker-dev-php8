@@ -1,0 +1,10 @@
+{
+    "name": "test/rights",
+    "authors": [
+        {
+            "name": "Thomas CILES",
+            "email": "thomasciles@gmail.com"
+        }
+    ],
+    "require": {}
+}
