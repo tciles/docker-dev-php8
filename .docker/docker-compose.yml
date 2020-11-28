@@ -1,0 +1,30 @@
+version: "3.3"
+services: 
+  php:
+    build: ./php
+    networks:
+      - backend
+    ports: 
+      - 9000:9000
+    expose: 
+      - 9000  
+    volumes:
+      - ./:/var/www/html  
+      - ../logs/php:/var/log:rw
+
+  apache:
+    build: ./apache
+    depends_on:
+      - php
+    networks:
+      - backend
+      - frontend
+    ports: 
+      - 8080:80
+    volumes:
+      - ./:/usr/local/apache2/htdocs/
+      - ../logs/apache:/usr/local/apache2/logs:rw
+
+networks:
+  backend:
+  frontend:
