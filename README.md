@@ -1,4 +1,4 @@
-# Docker Apache 2.4 + PhpFPM 8.0 + MariaDB
+# Docker Apache 2.4 + PHP-FPM 8.0 + MariaDB
 
 ``` 
 cd .docker
