@@ -21,10 +21,6 @@ services:
     networks:
       - backend
       - backend_data
-    ports: 
-      - 9000:9000
-    expose: 
-      - 9000  
     volumes:
       - ../app/:/var/www/html  
       - ../logs/php:/var/log:rw    
