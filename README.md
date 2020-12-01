@@ -21,7 +21,7 @@ docker exec docker_php_1 symfony
 ``` 
 
 ## Apache
-Configuration: .docker/apache
+Configuration: .docker/apache<br>
 Virtual hosts: .docker/apache/conf/extra/httpd-vhosts.conf
 
 ### Hosts
