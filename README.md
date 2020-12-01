@@ -31,5 +31,9 @@ Virtual hosts: .docker/apache/conf/extra/httpd-vhosts.conf
 127.0.0.1       dev-docker.lan
 ``` 
 
+Webroot: app folder <br>
+[http://docker.lan:8080](http://docker.lan:8080) => /<br>
+[http://dev-docker.lan:8080](http://dev-docker.lan:8080) => /dev
+
 ## PHP
 Configurations: .docker/php
