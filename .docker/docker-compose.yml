@@ -33,6 +33,7 @@ services:
     build: ./apache
     depends_on:
       - php
+    hostname: httpd_host  
     networks:
       - backend
       - frontend
